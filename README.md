@@ -9,8 +9,11 @@ Crear un servidor DNS con las siguientes zonas:
   - ftp servidor ftp.
 - sitioc.net
     - www web con información de Oracle.  
-    - ftp servidor ftp.
-
+    - ftp servidor ftp.  
+Crear una máquina virtual con un entorno gráfico. Esta accederá a los sitios web. También tendrá acceso a cualquier sitio web de internet.  
+El servidor DNS será RAID 0.  
+Los Servidores web ftp serán RAID 5.  
+** Configuración DNS **  
 
 ~~~
 #named.conf.local
@@ -111,7 +114,7 @@ $TTL 38400
 @ IN NS server03.
 22 IN PTR server03.
 ~~~  
-**Configuración router  **
+**Configuración ROUTER  **
 Editamos el fichero sysctl.conf:
 ~~~
 nano /etc/sysctl.conf
