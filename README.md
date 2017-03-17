@@ -9,7 +9,8 @@ Crear un servidor DNS con las siguientes zonas:
   - ftp servidor ftp.
 - sitioc.net
     - www web con información de Oracle.  
-    - ftp servidor ftp.  
+    - ftp servidor ftp.
+    
 Crear una máquina virtual con un entorno gráfico. Esta accederá a los sitios web. También tendrá acceso a cualquier sitio web de internet.  
 El servidor DNS será RAID 0.  
 Los Servidores web ftp serán RAID 5.
@@ -115,7 +116,7 @@ $TTL 38400
 22 IN PTR server03.
 ~~~  
 **Configuración ROUTER**  
-Editamos el fichero sysctl.conf:
+Editamos el fichero **sysctl.conf:**
 ~~~
 nano /etc/sysctl.conf
 ~~~
@@ -124,7 +125,7 @@ Y descomentamos:
 net.ipv4.tcp_syncookies=1
 ~~~
 
-Ahora a crear un archivo llamado router.sh y editar el siguiente contenido:
+Ahora a crear un archivo llamado **router.sh** y editar el siguiente contenido:
 ~~~
 nano router.sh
 ~~~
@@ -132,7 +133,7 @@ nano router.sh
 #!/bin/bash
 iptables -t nat -A POSTROUTING -o ens33 -j MASQUERADE
 ~~~
-Y editamos el fichero /etc/rc.local para que el script se inicie al ejecutar el servidor añadiendo:
+Y editamos el fichero **/etc/rc.local** para que el script se inicie al ejecutar el servidor añadiendo:
 ~~~
 sh /home/usuario/router.sh
 ~~~
