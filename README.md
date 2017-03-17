@@ -21,12 +21,12 @@ zone "sitioa.com " {
 
 zone "sitiob.net " {
         type master;
-    file "/etc/bind/rd.sitiob.com ";
+    file "/etc/bind/rd.sitiob.net ";
 };
 
 zone "sitioc.net " {
         type master;
-    file "/etc/bind/rd.sitioc.com ";
+    file "/etc/bind/rd.sitioc.net ";
 };
 
 
@@ -110,9 +110,8 @@ $TTL 38400
 
 @ IN NS server03.
 22 IN PTR server03.
-~~~
-
-Configuración router  
+~~~  
+**Configuración router  **
 Editamos el fichero sysctl.conf:
 ~~~
 nano /etc/sysctl.conf
